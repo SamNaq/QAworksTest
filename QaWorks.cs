@@ -44,11 +44,14 @@ namespace UnitTestProject1.Steps
         [Then(@"I submit the get in touch form")]
         public void ThenISubmitTheGetInTouchForm()
         {
-            _page.Name.SendKeys("Jhon Doe");
-            _page.Email.SendKeys("Jhon.Doe@gmail.com");
-            _page.Subject.SendKeys("This is a test");
-            _page.Message.SendKeys("Keep up the good work");
+            _page.Name.SendKeys("j.Bloggs");
+            _page.Email.SendKeys("j.Bloggs@qaworks.com");
+            _page.Subject.SendKeys("test automation");
+            _page.Message.SendKeys("please contact me I want to find out more");
             _page.SubmitButton.Click();
+            
+            //Assert step will not work since I dont know what the message is on successful submission to verify against. 
+            Assert.IsTrue(_page.ContactPageText.Exists("Your request is successfully sent"), "Form did not submit"); 
         }
 
 
